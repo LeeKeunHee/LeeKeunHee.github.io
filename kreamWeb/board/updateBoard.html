@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 수정</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+.tit{ font-size:48px; text-align: center;}
+</style>
+</head>
+<body>
+	<form action="UpdateBoardCtrl?page=${pageNum }">
+	<table>
+	<thead>
+	<tr>
+		<th class="item1">작성자</th>
+		<th class="item2">제목</th>
+		<th class="item3">내용</th>
+		<th class="item4">파일</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<input type="hidden" name="board_num" value="1" />
+		<td class="item1"><input type="text" name="board_id" value="관리자" readonly /></td>
+		<td class="item2"><input type="text" name="board_subject" value="묻고답하기" /></td>
+		<td class="item3"><textarea name="board_subject">
+		묻고답하기 내용
+		</textarea></td>
+		<td class="item4"><c:if test="${board.getReLevel() == 0 }">
+	<input type="text" name="board_file" value="" />
+	</c:if></td>
+	</tr>
+	</tbody>
+	</table>
+	<input type="reset" value="취소" class="btn btn-primary" />
+	<input type="submit" value="수정" class="btn btn-primary" />
+	<a href="getBoardList2.html" class="btn btn-primary">목록</a>
+	</form>
+</body>
+</html>
